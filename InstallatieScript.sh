@@ -1,11 +1,17 @@
 #!/bin/sh
-echo "HammerTECH automatisch installatie script... Even geduld a.u.b., uw systeem kan meerdere malen opnieuw opstarten."
-echo "Laatste updates installere..."
+BLUE='\033[0;34m'
+NC='\033[0m' # No Color
+echo -e "${BLUE}HammerTECH automatisch installatie script... Even geduld a.u.b., uw systeem kan meerdere malen opnieuw opstarten."
+echo -e "${BLUE}Laatste updates installere..."
 apt-get update -y
 apt-get upgrade -y
+apt-get install curl
 echo "Klaar, MagicMirror installeren..."
-bash -c "$(curl -sL https://raw.githubusercontent.com/MichMich/MagicMirror/master/installers/raspberry.sh)" -y
-npm install -g electron@1.7.6
+curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+apt-get install -y nodejs
+git clone https://github.com/MichMich/MagicMirror
+cd MagicMirror/
+npm install -g electron@6.0.12
 echo "Klaar, automatisch MagicMirror opstarten inschakelen"
 pm2 startup
 cd ~
