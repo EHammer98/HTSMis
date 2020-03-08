@@ -4,7 +4,7 @@ echo "Laatste updates installere..."
 apt-get update -y
 apt-get upgrade -y
 echo "Klaar, MagicMirror installeren..."
-bash -c "$(curl -sL https://raw.githubusercontent.com/MichMich/MagicMirror/master/installers/raspberry.sh)"
+bash -c "$(curl -sL https://raw.githubusercontent.com/MichMich/MagicMirror/master/installers/raspberry.sh)" -y
 npm install -g electron@1.7.6
 echo "Klaar, automatisch MagicMirror opstarten inschakelen"
 pm2 startup
