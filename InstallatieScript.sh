@@ -19,7 +19,7 @@ git clone https://github.com/htilburgs/MMM-MyTraffic
 git clone https://github.com/Taolanoz/MMM-RSS-FEED
 git clone https://github.com/73cirdan/MMM-rainfc
 git clone https://github.com/eouia/MMM-Remote-Control-Repository
-git clone https://github.com/Jopyth/MMM-Remote-Control.git
+git clone https://github.com/Jopyth/MMM-Remote-Control
 cd MMM-Remote-Control
 npm install
 rm /boot/setup.txt
