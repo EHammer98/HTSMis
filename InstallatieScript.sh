@@ -19,9 +19,7 @@ git clone https://github.com/htilburgs/MMM-MyTraffic
 git clone https://github.com/Taolanoz/MMM-RSS-FEED
 git clone https://github.com/73cirdan/MMM-rainfc
 git clone https://github.com/eouia/MMM-Remote-Control-Repository
-git clone https://github.com/Jopyth/MMM-Remote-Control
-cd MMM-Remote-Control
-npm install
+bash -c "$(curl -sL https://raw.githubusercontent.com/Jopyth/MMM-Remote-Control/master/installer.sh)" -y
 rm /boot/setup.txt
 echo "Wachtwoord veranderen van pi-user"
 PASS='date +%s | sha256sum | base64 | head -c 32'
