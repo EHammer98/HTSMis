@@ -1,0 +1,34 @@
+Raspbian branden dmv BalenaEtcher
+Create a file called "setup.txt" on the sd card in windows ( boot partition)
+Maak een bestand aan 'setuo.txt' op de SDkaart in de boot partitie
+
+Voer vervolgens alles wat hieronder staat tussen [ ] in bij het volgende bestand /etc/rc.local
+
+[
+sudo apt-get update -y
+sudo apt-get upgrade -y
+sudo apt-get install curl
+if [ -e /boot/setup.txt]
+then
+    bash -c "$(curl -sL https://raw.githubusercontent.com/EHammer98/HTSMis/master/InstallatieScript.sh)"   
+fi
+exit 0
+]
+
+Hierdoor zal het script maar eenmaal draaien. Let op! Bij het installeren van MagicMirror zal het een en ander gevraagd worden, kies bij alle optie voor YES.
+Vervolgens worden er nog een aantal modules geïnstalleerd.
+	-weer > https://github.com/73cirdan/MMM-rainfc
+	-verkeer > https://github.com/htilburgs/MMM-MyTraffic
+	-nieuws > https://github.com/maxenxe/MMM-RSS-FEED
+	-MM-remote-update > https://github.com/eouia/MMM-Remote-Control-Repository
+	-MM-remote > https://github.com/Jopyth/MMM-Remote-Control
+	
+En volg nu de bijbehorende instructie van zowel de link hier boven als deze hiernaast https://www.youtube.com/watch?v=539zmAJREe4 (dit dit pas als het installatiescript klaar is, dus noteer de config lines!
+
+Vervolgens zal het wachtwoord van de user pi veranderd worden. Noteer deze GOED! Deze dient meegegeven worden op een stikker op de verpakking en genoteerd te worden samen met he mac-adres op het factuur (alleen intern).
+Daarna zal het WiFiSetup Python programmer geplaatst worden en uitgevoerd worden.
+
+Plak vervolgens de eerder genoteerde config lines + die uit HTSM_config.txt in de cd ~/MagicMirror/config en dan nano config.js 
+Herstart vergolgens met reboot en test de boel.
+
+Klaar is kees.
