@@ -19,7 +19,6 @@ git clone https://github.com/htilburgs/MMM-MyTraffic
 git clone https://github.com/Taolanoz/MMM-RSS-FEED
 git clone https://github.com/73cirdan/MMM-rainfc
 git clone https://github.com/eouia/MMM-Remote-Control-Repository
-cd ~/MagicMirror/modules # adapt directory if you are using a different one
 git clone https://github.com/Jopyth/MMM-Remote-Control.git
 cd MMM-Remote-Control
 npm install
@@ -27,7 +26,7 @@ rm /boot/setup.txt
 echo "Wachtwoord veranderen van pi-user"
 PASS='date +%s | sha256sum | base64 | head -c 32'
 echo "${RED}BELANGRIJK! ${BLUE}Noteer het volgende als Pi wachtwoord: ${GRN} ${PASS} ${BLUE}"
-echo "${PASS}" | passwd --stdin pi
+echo -e"${PASS}" | passwd pi
 ifconfig -a |
 awk '/^[a-z]/ { iface=$1; mac=$NF; next }
     /inet addr:/ { print iface, mac }'
