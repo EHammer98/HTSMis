@@ -1,5 +1,5 @@
 #!/bin/sh
-V='Versie: 0.0.3'
+V='Versie: 0.0.5'
 RED='\033[0;31m'
 GRN='\033[0;32m'
 BLUE='\033[0;34m'
