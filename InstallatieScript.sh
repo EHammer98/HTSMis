@@ -20,12 +20,12 @@ git clone https://github.com/73cirdan/MMM-rainfc
 git clone https://github.com/eouia/MMM-Remote-Control-Repository
 #bash -c "$(curl -sL https://raw.githubusercontent.com/Jopyth/MMM-Remote-Control/master/installer.sh)" 
 echo "Wachtwoord veranderen van pi-user"
-echo "${RED}BELANGRIJK! ${BLUE}Noteer het volgende als Pi wachtwoord: ${GRN}\n"
-echo date +%s | sha256sum | base64 | head -c 16 > tmp001.txt
-tmp=$(<tmp001.txt)
+echo "${RED}BELANGRIJK! ${BLUE} Noteer het volgende als Pi wachtwoord: ${GRN}\n"
+echo date +%s | sha256sum | base64 | head -c 16 > test1.txt
+tmp=$(<test1.txt)
 echo "$value"
-yes $value | sudo passwd pi
-rm tmp001.txt
+yes $tmp | sudo passwd pi
+rm test1.txt
 echo "${BLUE}"
 ifconfig -a |
 awk '/^[a-z]/ { iface=$1; mac=$NF; next }
