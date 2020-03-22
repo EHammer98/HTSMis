@@ -37,5 +37,11 @@
 					}
 },
 {
-  module: "MMM-Remote-Control-Repository",
+  module: 'MMM-Remote-Control'
+  // uncomment the following line to show the url of the remote control on the mirror
+  , position 'bottom_left'
+  //you can hide this module afterwards from the remote control itself
+  config{
+	apiKey: ''
+	}
 },

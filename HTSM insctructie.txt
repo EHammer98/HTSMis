@@ -1,21 +1,35 @@
 Raspbian branden dmv BalenaEtcher
-Create a file called "setup.txt" on the sd card in windows ( boot partition)
-Maak een bestand aan 'setuo.txt' op de SDkaart in de boot partitie
+Maak een bestand aan 'setup.txt' op de SDkaart in de boot partitie
+Start de Pi op en voer de setup uit
+Country=NL
+Language=DUTCH
+Timezone=AMSTERDAM
+keyboard=US
+Network= local wifi of wired
+password
+black border around the desktop=YES
 
-Voer vervolgens alles wat hieronder staat tussen [ ] in bij het volgende bestand /etc/rc.local
-
-[
+Voer nu de volgende commando's uit via de terminal
 sudo apt-get update -y
 sudo apt-get upgrade -y
 sudo apt-get install curl
-if [ -e /boot/setup.txt]
-then
-    bash -c "$(curl -sL https://raw.githubusercontent.com/EHammer98/HTSMis/master/InstallatieScript.sh)"   
-fi
-exit 0
+
+Voer vervolgens alles wat hieronder staat tussen [ ] in bij het volgende bestand /etc/rc.local  (sudo nano /etc/rc.local)
+
+[
+printf "UPDATING..."
+sudo apt-get update -y
+sudo apt-get upgrade -y
+printf "DONE..."    
 ]
 
+Vervolgens dien je het volgende script uit te voeren
+bash -c "$(curl -sL https://raw.githubusercontent.com/EHammer98/HTSMis/master/InstallatieScript.sh)" 
+OF
+bash -c "$(curl -sL https://bit.ly/2UswWU7)"
+
 Hierdoor zal het script maar eenmaal draaien. Let op! Bij het installeren van MagicMirror zal het een en ander gevraagd worden, kies bij alle optie voor YES.
+
 Vervolgens worden er nog een aantal modules geïnstalleerd.
 	-weer > https://github.com/73cirdan/MMM-rainfc
 	-verkeer > https://github.com/htilburgs/MMM-MyTraffic
@@ -27,6 +41,8 @@ En volg nu de bijbehorende instructie van zowel de link hier boven als deze hier
 
 Vervolgens zal het wachtwoord van de user pi veranderd worden. Noteer deze GOED! Deze dient meegegeven worden op een stikker op de verpakking en genoteerd te worden samen met he mac-adres op het factuur (alleen intern).
 Daarna zal het WiFiSetup Python programmer geplaatst worden en uitgevoerd worden.
+Nu zal de Pi herstarten en krijg je als het goed is een setup wizard te zien, doe het volgende:
+
 
 Plak vervolgens de eerder genoteerde config lines + die uit HTSM_config.txt in de cd ~/MagicMirror/config en dan nano config.js 
 Herstart vergolgens met reboot en test de boel.
