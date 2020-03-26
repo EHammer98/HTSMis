@@ -24,9 +24,14 @@ printf "DONE..."
 ]
 
 Vervolgens dien je het volgende script uit te voeren
-bash -c "$(curl -sL https://raw.githubusercontent.com/EHammer98/HTSMis/master/InstallatieScript.sh)" 
+sudo bash -c "$(curl -sL https://raw.githubusercontent.com/MichMich/MagicMirror/master/installers/raspberry.sh)" 
 OF
-bash -c "$(curl -sL https://bit.ly/2UswWU7)"
+sudo bash -c "$(curl -sL https://bit.ly/3dxV4xm)"
+
+Vervolgens dien je het volgende script uit te voeren
+sudo bash -c "$(curl -sL https://raw.githubusercontent.com/EHammer98/HTSMis/master/InstallatieScript.sh)" 
+OF
+sudo bash -c "$(curl -sL https://bit.ly/2UswWU7)"
 
 Hierdoor zal het script maar eenmaal draaien. Let op! Bij het installeren van MagicMirror zal het een en ander gevraagd worden, kies bij alle optie voor YES.
 
