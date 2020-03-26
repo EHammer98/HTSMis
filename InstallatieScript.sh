@@ -1,10 +1,13 @@
 #!/bin/sh
-V='Versie: 0.0.8'
+V='Versie: 0.0.9'
 RED='\033[0;31m'
 GRN='\033[0;32m'
 BLUE='\033[0;34m'
+BOLD='\e[1m'
+INV='\e[7m'
+BLINK='\e[5m'
 NC='\033[0m' # No Color
-echo -e "${BLUE}HammerTECH automatisch installatie script... ${GRN} ${V} ${BLUE}";
+echo "${BLUE} ${BLINK} HammerTECH automatisch installatie script... ${GRN} ${V} ${BLUE} ${BOLD}";
 echo "Laatste updates installeren...\n"
 sudo apt update
 sudo apt upgrade
@@ -20,17 +23,17 @@ git clone https://github.com/73cirdan/MMM-rainfc
 git clone https://github.com/eouia/MMM-Remote-Control-Repository
 #bash -c "$(curl -sL https://raw.githubusercontent.com/Jopyth/MMM-Remote-Control/master/installer.sh)" 
 echo "Wachtwoord veranderen van pi-user";
-echo "${RED}BELANGRIJK! ${BLUE} Noteer het volgende als Pi wachtwoord: ${GRN}";
+echo "${RED}BELANGRIJK! ${BLUE} Noteer het volgende als Pi wachtwoord: ${GRN} ${INV}";
 echo date +%s | sha256sum | base64 | head -c 16 > test1.txt
 tmp=$(<test1.txt)
 echo "$value";
 yes $tmp | sudo passwd pi
 rm test1.txt
-echo "${RED}BELANGRIJK! ${BLUE} Noteer het volgende als Pi MAC-adres: ${GRN}";
+echo "${BOLD} ${RED}BELANGRIJK! ${BLUE} Noteer het volgende als Pi MAC-adres: ${GRN} ${INV}";
 IFACE=wlan0
 read MAC </sys/class/net/$IFACE/address
-echo "$IFACE $MAC ;
-echo "${BLUE} SSH aanzetten...";
+echo "$IFACE $MAC" ;
+echo "${BOLD} ${BLUE} SSH aanzetten...";
 sudo systemctl enable ssh 
 sudo systemctl start ssh 
 echo "WiFiSetup installeren en uitvoeren...";
@@ -42,6 +45,6 @@ unzip WiFiSetup.zip
 cd ~/WiFiSetup
 sudo apt-get install -y python3-pip 
 sudo python3 setup_lib.py
-echo "Opnieuw opstarten...";
+echo "${BLINK} Opnieuw opstarten...";
 reboot
 #etc.
