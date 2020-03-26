@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 V='Versie: 0.1.1'
 #RED='\033[0;31m'
 #GRN='\033[0;32m'
@@ -44,5 +44,5 @@ cd ~/WiFiSetup
 sudo apt-get install -y python3-pip 
 sudo python3 setup_lib.py
 echo "Opnieuw opstarten...";
-reboot
+shutdown -r now
 #etc.
