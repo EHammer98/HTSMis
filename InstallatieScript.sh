@@ -24,7 +24,7 @@ echo "Wachtwoord veranderen van pi-user";
 echo -e "${RED}BELANGRIJK! ${NC} Noteer het volgende als Pi wachtwoord: ${GRN}";
 echo date +%s | sha256sum | base64 | head -c 16 > test1.txt
 tmp=$(<test1.txt)
-echo "$value";
+echo -e "$value";
 yes $tmp | sudo passwd pi
 rm test1.txt
 echo -e "${RED}BELANGRIJK! ${NC} Noteer het volgende als Pi MAC-adres: ${GRN}";
