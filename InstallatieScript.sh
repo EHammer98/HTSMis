@@ -7,10 +7,10 @@ BOLD='\e[1m'
 NC='\033[0m' 
 echo -e "${BOLD}HammerTECH automatisch installatie script... ";" ${GRN} ${V} ${NC}";
 echo "Laatste updates installeren...";
-apt update
-apt upgrade
+#apt update
+#apt upgrade
 echo -e "Klaar, MagicMirror installeren... ${RED}INTERACTIE VEREIST!${NC}";
-bash -c "$(curl -sL https://raw.githubusercontent.com/MichMich/MagicMirror/master/installers/raspberry.sh)" 
+sudo bash -c "$(curl -sL https://raw.githubusercontent.com/MichMich/MagicMirror/master/installers/raspberry.sh)" 
 echo "avoid_warnings=1" >>  /boot/config.txt
 sudo apt-get install unclutter 
 echo "Extra modules installeren";
@@ -19,12 +19,12 @@ git clone https://github.com/htilburgs/MMM-MyTraffic
 git clone https://github.com/Taolanoz/MMM-RSS-FEED
 git clone https://github.com/73cirdan/MMM-rainfc
 git clone https://github.com/eouia/MMM-Remote-Control-Repository
-bash -c "$(curl -sL https://raw.githubusercontent.com/Jopyth/MMM-Remote-Control/master/installer.sh)" 
+sudo bash -c "$(curl -sL https://raw.githubusercontent.com/Jopyth/MMM-Remote-Control/master/installer.sh)" 
 echo "Wachtwoord veranderen van pi-user";
 echo -e "${RED}BELANGRIJK! ${NC} Noteer het volgende als Pi wachtwoord: ${GRN}";
 echo date +%s | sha256sum | base64 | head -c 16 > test1.txt
 tmp=$(<test1.txt)
-echo -e "$value";
+echo -e "$tmp";
 yes $tmp | sudo passwd pi
 rm test1.txt
 echo -e "${RED}BELANGRIJK! ${NC} Noteer het volgende als Pi MAC-adres: ${GRN}";
