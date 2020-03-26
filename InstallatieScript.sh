@@ -45,5 +45,5 @@ sudo apt-get install -y python3-pip
 #sudo python3 setup_lib.py
 sudo python3 initial_setup.py
 echo "Opnieuw opstarten...";
-shutdown -r now
+#shutdown -r now
 #etc.
