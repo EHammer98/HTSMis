@@ -1,5 +1,5 @@
 #!/bin/sh
-V='Versie: 0.1.3'
+V='Versie: 0.1.5'
 RED='\033[0;31m'
 GRN='\033[0;32m'
 BLUE='\033[0;34m'
@@ -9,8 +9,8 @@ echo -e "${BOLD}HammerTECH automatisch installatie script... ";" ${GRN} ${V} ${N
 echo "Laatste updates installeren...";
 #yes | apt update
 #yes | apt upgrade
-#echo -e "Klaar, MagicMirror installeren... ${RED}INTERACTIE VEREIST!${NC}";
-#bash -c "$(curl -sL https://raw.githubusercontent.com/MichMich/MagicMirror/master/installers/raspberry.sh)" 
+echo -e "Klaar, MagicMirror installeren... ${RED}INTERACTIE VEREIST!${NC}";
+bash -c "$(curl -sL https://raw.githubusercontent.com/MichMich/MagicMirror/master/installers/raspberry.sh)" 
 echo "avoid_warnings=1" >>  /boot/config.txt
 yes | sudo apt-get install unclutter 
 echo "Extra modules installeren";
