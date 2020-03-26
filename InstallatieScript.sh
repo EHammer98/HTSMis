@@ -5,7 +5,7 @@ GRN='\033[0;32m'
 BLUE='\033[0;34m'
 BOLD='\e[1m'
 NC='\033[0m' 
-echo -e "${BOLD}$ {BLUE}HammerTECH automatisch installatie script... ";" ${GRN} ${V} ${BLUE}";
+echo -e "${BOLD}${BLUE}HammerTECH automatisch installatie script... ";" ${GRN} ${V} ${BLUE}";
 echo "Laatste updates installeren...\n"
 apt update
 apt upgrade
