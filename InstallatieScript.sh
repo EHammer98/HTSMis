@@ -1,5 +1,5 @@
 #!/bin/sh
-V='Versie: 0.1.5'
+V='Versie: 0.1.6'
 RED='\033[0;31m'
 GRN='\033[0;32m'
 BLUE='\033[0;34m'
@@ -12,6 +12,10 @@ echo "Laatste updates installeren...";
 echo -e "Klaar, MagicMirror installeren... ${RED}INTERACTIE VEREIST!${NC}";
 bash -c "$(curl -sL https://raw.githubusercontent.com/MichMich/MagicMirror/master/installers/raspberry.sh)" 
 echo "avoid_warnings=1" >>  /boot/config.txt
+echo "printf 'UPDATING...'
+sudo apt-get update -y
+sudo apt-get upgrade -y
+printf 'DONE...'   " >>  /etc/rc.local
 yes | sudo apt-get install unclutter 
 echo "Extra modules installeren";
 cd ~/MagicMirror/modules 
@@ -22,10 +26,10 @@ git clone https://github.com/eouia/MMM-Remote-Control-Repository
 yes | bash -c "$(curl -sL https://raw.githubusercontent.com/Jopyth/MMM-Remote-Control/master/installer.sh)" 
 echo "Wachtwoord veranderen van pi-user";
 echo -e "${RED}BELANGRIJK! ${NC} Noteer het volgende als Pi wachtwoord: ${GRN}";
-echo -e "${NC}";
 echo date +%s | sha256sum | base64 | head -c 16 > test1.txt
 tmp=$(<test1.txt)
 echo -e "$tmp";
+echo -e "${NC}";
 yes $tmp | sudo passwd pi
 rm test1.txt
 echo -e "${RED}BELANGRIJK! ${NC} Noteer het volgende als Pi MAC-adres: ${GRN}";
@@ -37,14 +41,13 @@ sudo systemctl enable ssh
 sudo systemctl start ssh 
 echo "WiFiSetup installeren en uitvoeren...";
 yes | sudo apt-get install unzip 
-cd ~
-mkdir WiFiSetup
-wget "https://github.com/EHammer98/HTSMis/blob/master/WiFiSetup.zip"
-unzip WiFiSetup.zip 
-cd ~/WiFiSetup
+mkdir /WiFiSetup
+curl -LO "https://github.com/EHammer98/HTSMis/raw/master/WiFiSetup.zip"
+unzip WiFiSetup.zip -d /WiFiSetup
+cd /WiFiSetup
 yes | sudo apt-get install -y python3-pip 
-#sudo python3 setup_lib.py
-sudo python3 initial_setup.py
+sudo python3 setup_lib.py
+#sudo python3 initial_setup.py
 echo "Opnieuw opstarten...";
 #shutdown -r now
 #etc.
