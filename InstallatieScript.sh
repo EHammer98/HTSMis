@@ -1,5 +1,5 @@
 #!/bin/sh
-V='Versie: 0.1.6'
+V='Versie: 0.1.7'
 RED='\033[0;31m'
 GRN='\033[0;32m'
 BLUE='\033[0;34m'
@@ -10,7 +10,7 @@ echo "Laatste updates installeren...";
 #yes | apt update
 #yes | apt upgrade
 echo -e "Klaar, MagicMirror installeren... ${RED}INTERACTIE VEREIST!${NC}";
-bash -c "$(curl -sL https://raw.githubusercontent.com/MichMich/MagicMirror/master/installers/raspberry.sh)" 
+yes | bash -c "$(curl -sL https://raw.githubusercontent.com/MichMich/MagicMirror/master/installers/raspberry.sh)" 
 echo "avoid_warnings=1" >>  /boot/config.txt
 echo "printf 'UPDATING...'
 sudo apt-get update -y
@@ -43,7 +43,7 @@ echo "WiFiSetup installeren en uitvoeren...";
 yes | sudo apt-get install unzip 
 mkdir /WiFiSetup
 curl -LO "https://github.com/EHammer98/HTSMis/raw/master/WiFiSetup.zip"
-unzip WiFiSetup.zip -d /WiFiSetup
+sudo unzip WiFiSetup.zip -d /WiFiSetup
 cd /WiFiSetup
 yes | sudo apt-get install -y python3-pip 
 sudo python3 setup_lib.py
