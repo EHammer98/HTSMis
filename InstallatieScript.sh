@@ -1,5 +1,5 @@
 #!/bin/sh
-V='Versie: 0.1.8'
+V='Versie: 0.1.9'
 RED='\033[0;31m'
 GRN='\033[0;32m'
 BLUE='\033[0;34m'
@@ -11,20 +11,29 @@ echo "Laatste updates installeren...";
 #yes | apt update
 #yes | apt upgrade
 echo -e "Klaar, MagicMirror installeren... ${RED}INTERACTIE VEREIST!${NC}";
-yes | sudo bash -c "$(curl -sL https://raw.githubusercontent.com/MichMich/MagicMirror/master/installers/raspberry.sh)" 
+yes | bash -c "$(curl -sL https://raw.githubusercontent.com/MichMich/MagicMirror/master/installers/raspberry.sh)" 
 echo "avoid_warnings=1" >>  /boot/config.txt
 echo "printf 'UPDATING...'
 sudo apt-get update -y
 sudo apt-get upgrade -y
 printf 'DONE...'   " >>  /etc/rc.local
+PATH='~/.config/lxsession/LXDE/autostart'
+echo "@xset s noblank
+@xset s off
+@xset =dmps" >> ${PATH}
 yes | sudo apt-get install unclutter 
+pm2 startup
+alias proj="cd ~"
+echo "cd ~/MagicMirror
+DISPLAY:0 npm start" >> mm.sh
+chmod +x mm.sh
 echo "Extra modules installeren";
 cd ~/MagicMirror/modules 
 git clone https://github.com/htilburgs/MMM-MyTraffic
 git clone https://github.com/Taolanoz/MMM-RSS-FEED
 git clone https://github.com/73cirdan/MMM-rainfc
 git clone https://github.com/eouia/MMM-Remote-Control-Repository
-yes | sudo bash -c "$(curl -sL https://raw.githubusercontent.com/Jopyth/MMM-Remote-Control/master/installer.sh)" 
+yes | bash -c "$(curl -sL https://raw.githubusercontent.com/Jopyth/MMM-Remote-Control/master/installer.sh)" 
 echo "Wachtwoord veranderen van pi-user";
 echo -e "${RED}BELANGRIJK! ${NC} Noteer het volgende als Pi wachtwoord: ${GRN}";
 echo date +%s | sha256sum | base64 | head -c 16 > test1.txt
@@ -49,6 +58,10 @@ cd /WiFiSetup
 yes | sudo apt-get install -y python3-pip 
 sudo python3 setup_lib.py
 #sudo python3 initial_setup.py
+echo "MM starten...";
+alias proj="cd ~/MagicMirror"
+pm2 start mm.sh
+pm2 save
 echo "Opnieuw opstarten...";
 #shutdown -r now
 #etc.
