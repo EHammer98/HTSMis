@@ -16,23 +16,21 @@ echo "avoid_warnings=1" >>  /boot/config.txt
 echo "printf 'UPDATING...'
 sudo apt-get update -y
 sudo apt-get upgrade -y
-printf 'DONE...'   " >>  /etc/rc.local
-PATH='~/.config/lxsession/LXDE/autostart'
+printf 'DONE...'   " >  /etc/rc.local
 echo "@xset s noblank
 @xset s off
-@xset =dmps" >> ${PATH}
+@xset =dmps" >> ~/.config/lxsession/LXDE/autostart
 yes | sudo apt-get install unclutter 
 pm2 startup
-alias proj="cd ~"
+sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u pi --hp /home/pi
 echo "cd ~/MagicMirror
-DISPLAY:0 npm start" >> mm.sh
-chmod +x mm.sh
+DISPLAY:0 npm start" >> ~/mm.sh
+sudo chmod +x ~/mm.sh
 echo "Extra modules installeren";
-cd ~/MagicMirror/modules 
-git clone https://github.com/htilburgs/MMM-MyTraffic
-git clone https://github.com/Taolanoz/MMM-RSS-FEED
-git clone https://github.com/73cirdan/MMM-rainfc
-git clone https://github.com/eouia/MMM-Remote-Control-Repository
+git clone https://github.com/htilburgs/MMM-MyTraffic ~/MagicMirror/modules 
+git clone https://github.com/Taolanoz/MMM-RSS-FEED ~/MagicMirror/modules 
+git clone https://github.com/73cirdan/MMM-rainfc ~/MagicMirror/modules 
+git clone https://github.com/eouia/MMM-Remote-Control-Repository ~/MagicMirror/modules 
 yes | bash -c "$(curl -sL https://raw.githubusercontent.com/Jopyth/MMM-Remote-Control/master/installer.sh)" 
 echo "Wachtwoord veranderen van pi-user";
 echo -e "${RED}BELANGRIJK! ${NC} Noteer het volgende als Pi wachtwoord: ${GRN}";
@@ -51,17 +49,16 @@ sudo systemctl enable ssh
 sudo systemctl start ssh 
 echo "WiFiSetup installeren en uitvoeren...";
 yes | sudo apt-get install unzip 
-mkdir /WiFiSetup
-curl -LO "https://github.com/EHammer98/HTSMis/raw/master/WiFiSetup.zip"
-yes | sudo unzip WiFiSetup.zip -d /WiFiSetup
-cd /WiFiSetup
+mkdir ~/WiFiSetup
+curl -L "https://github.com/EHammer98/HTSMis/raw/master/WiFiSetup.zip" > ~/WiFiSetup.zip
+yes | sudo unzip ~/WiFiSetup.zip -d ~/WiFiSetup
+cd ~/WiFiSetup
 yes | sudo apt-get install -y python3-pip 
 sudo python3 setup_lib.py
 #sudo python3 initial_setup.py
 echo "MM starten...";
-alias proj="cd ~/MagicMirror"
-pm2 start mm.sh
-pm2 save
+cd ~/MagicMirror && DISPLAY=:0 npm start
+pm2 start ~/mm.sh
 echo "Opnieuw opstarten...";
 #shutdown -r now
 #etc.
