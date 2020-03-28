@@ -1,5 +1,4 @@
-#!/bin/sh
-V='Versie: 0.1.9'
+#!/bin/sh23.0'
 RED='\033[0;31m'
 GRN='\033[0;32m'
 BLUE='\033[0;34m'
@@ -22,7 +21,6 @@ echo "@xset s noblank
 @xset =dmps" >> ~/.config/lxsession/LXDE/autostart
 yes | sudo apt-get install unclutter 
 pm2 startup
-sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u pi --hp /home/pi
 echo "cd ~/MagicMirror
 DISPLAY:0 npm start" >> ~/mm.sh
 sudo chmod +x ~/mm.sh
@@ -54,11 +52,11 @@ curl -L "https://github.com/EHammer98/HTSMis/raw/master/WiFiSetup.zip" > ~/WiFiS
 yes | sudo unzip ~/WiFiSetup.zip -d ~/WiFiSetup
 cd ~/WiFiSetup
 yes | sudo apt-get install -y python3-pip 
-sudo python3 setup_lib.py
-#sudo python3 initial_setup.py
+@sudo python3 setup_lib.py
+sudo python3 initial_setup.py
 echo "MM starten...";
-cd ~/MagicMirror && DISPLAY=:0 npm start
 pm2 start ~/mm.sh
+pm2 save
 echo "Opnieuw opstarten...";
 #shutdown -r now
 #etc.
