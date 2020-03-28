@@ -1,4 +1,5 @@
-#!/bin/sh23.0'
+#!/bin/sh'
+V='0.2.0'
 RED='\033[0;31m'
 GRN='\033[0;32m'
 BLUE='\033[0;34m'
@@ -12,13 +13,17 @@ echo "Laatste updates installeren...";
 echo -e "Klaar, MagicMirror installeren... ${RED}INTERACTIE VEREIST!${NC}";
 yes | bash -c "$(curl -sL https://raw.githubusercontent.com/MichMich/MagicMirror/master/installers/raspberry.sh)" 
 echo "avoid_warnings=1" >>  /boot/config.txt
-echo "printf 'UPDATING...'
+cat > /etc/rc.local <<EOF
+
+printf 'UPDATING...'
 sudo apt-get update -y
 sudo apt-get upgrade -y
-printf 'DONE...'   " >  /etc/rc.local
+printf 'DONE...'
+
+EOF 
 echo "@xset s noblank
 @xset s off
-@xset =dmps" >> ~/.config/lxsession/LXDE/autostart
+@xset =dmps" >> /etc/xdg/lxsession/LXDE-pi/autostart
 yes | sudo apt-get install unclutter 
 pm2 startup
 echo "cd ~/MagicMirror
@@ -52,8 +57,8 @@ curl -L "https://github.com/EHammer98/HTSMis/raw/master/WiFiSetup.zip" > ~/WiFiS
 yes | sudo unzip ~/WiFiSetup.zip -d ~/WiFiSetup
 cd ~/WiFiSetup
 yes | sudo apt-get install -y python3-pip 
-@sudo python3 setup_lib.py
-sudo python3 initial_setup.py
+sudo python3 setup_lib.py
+#sudo python3 initial_setup.py
 echo "MM starten...";
 pm2 start ~/mm.sh
 pm2 save
