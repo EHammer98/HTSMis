@@ -1,5 +1,5 @@
 #!/bin/sh'
-V='0.2.3'
+V='0.2.4'
 RED='\033[0;31m'
 GRN='\033[0;32m'
 BLUE='\033[0;34m'
@@ -54,8 +54,7 @@ sudo curl -L "https://github.com/EHammer98/HTSMis/raw/master/WiFiSetup.zip" > ~/
 yes | sudo unzip ~/WiFiSetup.zip -d ~/WiFiSetup
 cd ~/WiFiSetup
 yes | sudo apt-get install -y python3-pip 
-sudo python3 setup_lib.py
-#sudo python3 initial_setup.py
+sudo python3 initial_setup.py
 echo "Opnieuw opstarten...";
 #shutdown -r now
 #etc.
