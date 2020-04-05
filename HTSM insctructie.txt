@@ -44,3 +44,6 @@ Plak vervolgens de eerder genoteerde config lines + die uit HTSM_config.txt in d
 Herstart vergolgens met reboot en test de boel.
 
 Klaar is kees.
+
+
+#htsmwifisetup.nl
