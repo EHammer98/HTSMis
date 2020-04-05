@@ -1,5 +1,5 @@
 #!/bin/sh'
-V='0.2.4'
+V='0.2.5'
 RED='\033[0;31m'
 GRN='\033[0;32m'
 BLUE='\033[0;34m'
@@ -8,10 +8,10 @@ NC='\033[0m'
 echo -e "${BOLD}HammerTECH automatisch installatie script...";
 echo -e "${GRN} ${V} ${NC}";
 echo "Laatste updates installeren...";
-#yes | apt update
-#yes | apt upgrade
+yes | apt update
+yes | apt upgrade
 echo -e "Klaar, MagicMirror installeren... ${RED}INTERACTIE VEREIST!${NC}";
-yes | bash -c "$(curl -sL https://raw.githubusercontent.com/MichMich/MagicMirror/master/installers/raspberry.sh)" 
+yes | bash -c "$(curl -sL  https://raw.githubusercontent.com/sdetweil/MagicMirror_scripts/master/raspberry.sh)" 
 echo "avoid_warnings=1" | sudo tee -a /boot/config.txt
 sudo rm /etc/rc.local
 echo "#!bin/sh -e

@@ -9,9 +9,9 @@ Network= local wifi of wired
 password
 black border around the desktop=YES
 
-Voer nu de volgende commando's uit via de terminal
-sudo apt-get update -y
-sudo apt-get upgrade -y
+#Voer nu de volgende commando's uit via de terminal
+#sudo apt-get update -y
+#sudo apt-get upgrade -y
 
 Vervolgens dien je het volgende script uit te voeren
 bash -c "$(curl -sL https://raw.githubusercontent.com/EHammer98/HTSMis/master/InstallatieScript.sh)" 
