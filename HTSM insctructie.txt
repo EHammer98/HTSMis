@@ -9,21 +9,11 @@ Network= local wifi of wired
 password
 black border around the desktop=YES
 
-#Voer nu de volgende commando's uit via de terminal
-#sudo apt-get update -y
-#sudo apt-get upgrade -y
-
 Vervolgens dien je het volgende script uit te voeren
 bash -c "$(curl -sL https://raw.githubusercontent.com/EHammer98/HTSMis/master/InstallatieScript.sh)" 
 OF
 bash -c "$(curl -sL https://bit.ly/2UswWU7)"
 En antwoord daar alles met y (yes) behavle de vraag om nu al MM te starten!
-
-#Daarna voer het volgende uit:
-#pm2 startup
-#cd ~
-#pm2 start mm.sh
-#pm2 save
 
 Hierdoor zal het script maar eenmaal draaien. Let op! Bij het installeren van MagicMirror zal het een en ander gevraagd worden, kies bij alle optie voor YES.
 
