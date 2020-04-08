@@ -1,5 +1,5 @@
 #!/bin/sh'
-V='0.2.8'
+V='0.2.9'
 RED='\033[0;31m'
 GRN='\033[0;32m'
 BLUE='\033[0;34m'
@@ -12,6 +12,7 @@ yes | sudo apt update
 yes | sudo apt upgrade
 echo -e "Klaar, MagicMirror installeren... ${RED}INTERACTIE VEREIST!${NC}";
 yes | bash -c "$(curl -sL  https://raw.githubusercontent.com/sdetweil/MagicMirror_scripts/master/raspberry.sh)" 
+pm2 stop MagicMirror
 echo "avoid_warnings=1" | sudo tee -a /boot/config.txt
 sudo rm /etc/rc.local
 echo "#!bin/sh -e
