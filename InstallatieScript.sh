@@ -56,6 +56,7 @@ yes | sudo unzip ~/WiFiSetup.zip -d ~/WiFiSetup
 cd ~/WiFiSetup
 yes | sudo apt-get install -y python3-pip 
 sudo python3 initial_setup.py
+pm2 start MagicMirror
 echo "Opnieuw opstarten...";
 #shutdown -r now
 #etc.
