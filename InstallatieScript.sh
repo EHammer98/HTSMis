@@ -1,5 +1,5 @@
 #!/bin/sh'
-V='0.3.0'
+V='0.3.1'
 RED='\033[0;31m'
 GRN='\033[0;32m'
 BLUE='\033[0;34m'
@@ -14,7 +14,6 @@ echo -e "Klaar, MagicMirror installeren... ${RED}INTERACTIE VEREIST!${NC}";
 yes | bash -c "$(curl -sL  https://raw.githubusercontent.com/sdetweil/MagicMirror_scripts/master/raspberry.sh)" 
 sleep 2m
 pm2 stop MagicMirror
-sleep 1m
 echo "avoid_warnings=1" | sudo tee -a /boot/config.txt
 sudo rm /etc/rc.local
 echo "#!bin/sh -e
