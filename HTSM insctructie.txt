@@ -13,7 +13,9 @@ Vervolgens dien je het volgende script uit te voeren
 bash -c "$(curl -sL https://raw.githubusercontent.com/EHammer98/HTSMis/master/InstallatieScript.sh)" 
 OF
 bash -c "$(curl -sL https://bit.ly/2UswWU7)"
-En zodra MagicMirror op komt dien je deze zsm te sluiten door CTRL-C te gebruiken
+En zodra MagicMirror op komt dien je deze zsm te sluiten door "Windows-key" te gebruiken
+Open up Terminal
+Type pm2 stop MagicMirror
 
 Hierdoor zal het script maar eenmaal draaien. Let op! Bij het installeren van MagicMirror zal het een en ander gevraagd worden, kies bij alle optie voor YES.
 

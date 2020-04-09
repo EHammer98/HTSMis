@@ -1,5 +1,5 @@
 #!/bin/sh'
-V='0.2.9'
+V='0.3.0'
 RED='\033[0;31m'
 GRN='\033[0;32m'
 BLUE='\033[0;34m'
@@ -12,7 +12,9 @@ yes | sudo apt update
 yes | sudo apt upgrade
 echo -e "Klaar, MagicMirror installeren... ${RED}INTERACTIE VEREIST!${NC}";
 yes | bash -c "$(curl -sL  https://raw.githubusercontent.com/sdetweil/MagicMirror_scripts/master/raspberry.sh)" 
+sleep 2m
 pm2 stop MagicMirror
+sleep 1m
 echo "avoid_warnings=1" | sudo tee -a /boot/config.txt
 sudo rm /etc/rc.local
 echo "#!bin/sh -e
@@ -45,6 +47,7 @@ echo -e "${RED}BELANGRIJK! ${NC} Noteer het volgende als Pi MAC-adres: ${GRN}";
 IFACE=wlan0
 read MAC </sys/class/net/$IFACE/address
 echo "$IFACE $MAC" ;
+sleep 1m
 echo -e "${NC} SSH aanzetten...";
 sudo systemctl enable ssh 
 sudo systemctl start ssh 
@@ -58,5 +61,5 @@ yes | sudo apt-get install -y python3-pip
 sudo python3 initial_setup.py
 pm2 start MagicMirror
 echo "Opnieuw opstarten...";
-#shutdown -r now
+shutdown -r now
 #etc.
