@@ -16,8 +16,8 @@
 		position: "top_right",
             	header: "Rain forecast",
 		config: {
-			lat: "52.37",
-			lon: "4.90", 
+			lat: "52.07",
+			lon: "4.30", 
 			width: 200,
 			height: 150,
 			lineWidth: 2,
@@ -45,3 +45,6 @@
 	apiKey: ''
 	}
 },
+
+{ module: 'MMM-Remote-Control' // uncomment the following line to show the URL of the remote control on the mirror position: 'bottom_right', 
+// you can hide this module afterwards from the remote control itself config: { apiKey: '' } },
