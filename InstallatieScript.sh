@@ -1,5 +1,5 @@
 #!/bin/sh'
-V='0.3.2'
+V='0.3.3'
 RED='\033[0;31m'
 GRN='\033[0;32m'
 BLUE='\033[0;34m'
@@ -40,7 +40,7 @@ cd MMM-Remote-Control
 npm install
 echo "Juiste config file overzetten...";
 yes | rm -r ~/MagicMirror/config
-git clone https://github.com/EHammer98/HTSMis/config ~/MagicMirror/config 
+git clone https://github.com/EHammer98/HTSMis/tree/master/config ~/MagicMirror/config 
 echo "Wachtwoord veranderen van pi-user";
 echo -e "${RED}BELANGRIJK! ${NC} Noteer het volgende als Pi wachtwoord: ${GRN}";
 echo date +%s | sha256sum | base64 | head -c 16 > test1.txt
