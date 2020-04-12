@@ -63,15 +63,18 @@ var config = {
                                  }
                 },
                 {
-						module: "MMM-rainfc",
-						position: "top_right",
-						header: "Rain forecast",
+						module: 'MMM-MyDutchWeather',
+						position: 'top_left',
+						header: 'Weer',
 						config: {
-								lat: "52.1",
-								lon: "4.90", 
-								displaymode: "smooth",
-								}
-				},
+						latitude: "52.070499",			// Latitude of your city
+						longitude: "4.300700",			// Longitude of your city
+						apiKey: "5f155f01bf",				// API Key - Get for free at http://weerlive.nl/api/toegang/index.php
+						showIcons: true,			// Display Icons or Text
+						showExtra: true,			// Display additional weather information
+						maxWidth: "500px"			// Max width wrapper
+  }
+},
                 {
                         module: 'MMM-RSS-FEED',
                         position: 'top_bar',

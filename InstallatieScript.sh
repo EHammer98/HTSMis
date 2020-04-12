@@ -1,5 +1,5 @@
 #!/bin/sh'
-V='0.3.5'
+V='0.3.6'
 RED='\033[0;31m'
 GRN='\033[0;32m'
 BLUE='\033[0;34m'
@@ -31,16 +31,20 @@ sudo chmod +x ~/mm.sh
 echo "Extra modules installeren";
 git clone https://github.com/htilburgs/MMM-MyTraffic ~/MagicMirror/modules/MMM-MyTraffic  
 git clone https://github.com/Taolanoz/MMM-RSS-FEED ~/MagicMirror/modules/MMM-RSS-FEED 
-git clone https://github.com/73cirdan/MMM-rainfc ~/MagicMirror/modules/73cirdan/MMM-rainfc 
+git clone https://github.com/htilburgs/MMM-MyDutchWeather ~/MagicMirror/modules/MMM-MyDutchWeather
 git clone https://github.com/eouia/MMM-Remote-Control-Repository ~/MagicMirror/modules/MMM-Remote-Control-Repository 
 yes | bash -c "$(curl -sL https://raw.githubusercontent.com/Jopyth/MMM-Remote-Control/master/installer.sh)" 
 echo "MagicMirror Remote Control installeren...";
 git clone https://github.com/Jopyth/MMM-Remote-Control.git ~/MagicMirror/modules/MMM-Remote-Control
 cd MMM-Remote-Control
 npm install
+cd ~/MagicMirror/modules/MMM-MyDutchWeather
+npm install 
 echo "Juiste config file overzetten...";
 rm ~/MagicMirror/config/config.js
+rm ~/MagicMirror/js/socketclient.js
 sudo curl -L "https://raw.githubusercontent.com/EHammer98/HTSMis/master/config/config.js" > ~/MagicMirror/config/config.js
+sudo curl -L "https://raw.githubusercontent.com/EHammer98/HTSMis/master/config/socketclient.js" > ~/MagicMirror/js/socketclient.js
 echo "Wachtwoord veranderen van pi-user";
 echo -e "${RED}BELANGRIJK! ${NC} Noteer het volgende als Pi wachtwoord: ${GRN}";
 echo date +%s | sha256sum | base64 | head -c 16 > test1.txt
