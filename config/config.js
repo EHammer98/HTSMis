@@ -48,7 +48,69 @@ var config = {
                         module: "clock",
                         position: "top_left"
                 },
+				{
+                        module: "calendar",
+                        header: "Agenda",
+                        position: "center",
+                        config: {
+                                calendars: [
+                                        {
+                                                symbol: "calendar-check",
+                                                url: "webcal://www.calendarlabs.com/ical-calendar/ics/76/US_Holidays.ics"                                       }
+                                ]
+                        }
+                },
 
+				{
+						module: "MMM-Spotify",
+						position: "bottom_right",
+						config: {
+									style: "default", // "default" or "mini" available
+									control: "default", //"default", "hidden" available
+									updateInterval: 1000,
+									onStart: null, // disable onStart feature with `null`
+									allowDevices: [], //If you want to limit devices to display info, use this.
+									// allowDevices: ["RASPOTIFY", "My iPhoneX", "My Home speaker"],
+								}
+				},
+				onStart: {
+							deviceName: "RASPOTIFY", //if null, current(last) activated device will be.
+							spotifyUri: "spotify:track:3ENXjRhFPkH8YSH3qBXTfQ"
+							//when search is set, sportifyUri will be ignored.
+							search: {
+										type: "playlist", // `artist`, track`, `album`, `playlist` and its combination(`artist,playlist,album`) be available
+										keyword: "death metal",
+										random:true,
+									}
+						},
+				{
+						module: "MMM-Strava",
+						position: "bottom_left",
+						config: {
+									client_id: "your_strava_client_id",
+									client_secret: "your_strava_api_client_secret"
+								}
+				},
+				{
+						module: 'MMM-MyPrayerTimes',
+						position: 'top_right',
+						header: 'My Prayer Times',
+						config: {
+									mptLat: "52.070499",				// Replace with the latitude of your location
+									mptLon: "4.300700",				// Replace with the Longitude of your location
+									mptMethod: 3,			// Which calculation methode is used, see options below
+									mptOffset: "0,0,0,0,0,0,0,0,0"	// Time corrections for your location: Imsak, Fajr, Sunrise, Duhr, Asr, Sunset, Maghrib, Isha, Midnight
+									showSunrise: true,			// Display Sunrise, false if you want to hide
+									showSunset: true,			// Display Sunset, false if you want to hide
+									showMidnight: true,			// Display Midnight, false if you want to hide
+									showImsak: true,			// Display Imsak, false if you want to hide
+									show24Clock: true,			// Default display 24hour clock -> false is 12hour (AM/PM) clock
+								}
+				},
+				{
+						module: "MMM-chromecast",
+						position: "top",
+				},
                 {
                          module: 'MMM-MyTraffic',
                          position: 'top_left',
@@ -67,8 +129,8 @@ var config = {
 						position: 'top_right',
 						header: 'Weer',
 						config: {
-						latitude: "52.090736",			// Latitude of your city
-						longitude: "5.121420",			// Longitude of your city
+						latitude: "52.070499",			// Latitude of your city
+						longitude: "4.300700",			// Longitude of your city
 						apiKey: "5f155f01bf",				// API Key - Get for free at http://weerlive.nl/api/toegang/index.php
 						showIcons: true,			// Display Icons or Text
 						showExtra: true,			// Display additional weather information
