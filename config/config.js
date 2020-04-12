@@ -64,11 +64,11 @@ var config = {
                 },
                 {
 						module: 'MMM-MyDutchWeather',
-						position: 'top_left',
+						position: 'top_right',
 						header: 'Weer',
 						config: {
-						latitude: "52.070499",			// Latitude of your city
-						longitude: "4.300700",			// Longitude of your city
+						latitude: "52.090736",			// Latitude of your city
+						longitude: "5.121420",			// Longitude of your city
 						apiKey: "5f155f01bf",				// API Key - Get for free at http://weerlive.nl/api/toegang/index.php
 						showIcons: true,			// Display Icons or Text
 						showExtra: true,			// Display additional weather information

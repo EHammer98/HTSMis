@@ -15,7 +15,7 @@ OF
 bash -c "$(curl -sL https://bit.ly/2UswWU7)"
 
 Vervolgens worden er nog een aantal modules geïnstalleerd.
-	-weer > https://github.com/73cirdan/MMM-rainfc
+	-weer > https://github.com/htilburgs/MMM-MyDutchWeather
 	-verkeer > https://github.com/htilburgs/MMM-MyTraffic
 	-nieuws > https://github.com/maxenxe/MMM-RSS-FEED
 	-MM-remote-update > https://github.com/eouia/MMM-Remote-Control-Repository
