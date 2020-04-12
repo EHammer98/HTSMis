@@ -63,23 +63,15 @@ var config = {
                                  }
                 },
                 {
-                        module: "MMM-rainfc",
-                        position: "top_right",
-                        header: "Rain forecast",
-                        config: {
-                                lat: "52.07",
-                                lon: "4.30",
-                                width: 200,
-                                height: 150,
-                                lineWidth: 2,
-                                lineColor: "#e0ffe0",
-                                fillColor: "#e0ffe0",
-                                maxPower: 300,
-                                rainText: "Tot: ",
-                                noRainText: "Geen regen tot: ",
-                                nrOfTimeLabels: 5 // advised values: 2-5
-                                }
-                },
+						module: "MMM-rainfc",
+						position: "top_right",
+						header: "Rain forecast",
+						config: {
+								lat: "52.1",
+								lon: "4.90", 
+								displaymode: "smooth",
+								}
+				},
                 {
                         module: 'MMM-RSS-FEED',
                         position: 'top_bar',
